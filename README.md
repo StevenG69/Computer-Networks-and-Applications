@@ -53,46 +53,47 @@ The system uses **UDP for command exchange** and **TCP for reliable file transfe
     }
   }
 
-Application Layer Protocol
-Request–Response model over text-based commands
-Workflow:
-Client authenticates via UDP
-Client sends command (e.g., MSG Hello!)
-Server parses and executes operation
-Server sends success/error response to client address
-For file operations: client initiates TCP connection for actual transfer
+## Application Layer Protocol
+- Request–Response model over text-based commands
 
-Transport Layer Usage
-Authentication & Forum Commands
-UDP
-File Upload / Download
-TCP
+## Workflow:
+- Client authenticates via UDP
+- Client sends command (e.g., MSG Hello!)
+- Server parses and executes operation
+- Server sends success/error response to client address
+- For file operations: client initiates TCP connection for actual transfer
 
-Example Interaction
+## Transport Layer Usage
+- Authentication & Forum Commands
+- UDP
+- File Upload / Download
+- TCP
 
-User A (Batman):
-  CRT BvSScripts          → Thread BvSScripts created.
-  MSG Do you bleed?       → Message posted.
-  UPD BvSScripts doom.exe → UPLOAD_SUCCESS
+## Example Interaction
 
-User B (Superman):
-  RDT BvSScripts          → 1 Batman: Do you bleed?
-  DWN BvSScripts doom.exe → BvSScripts-doom.exe downloaded.
+- User A (Batman):
+  - CRT BvSScripts          → Thread BvSScripts created.
+  - MSG Do you bleed?       → Message posted.
+  - UPD BvSScripts doom.exe → UPLOAD_SUCCESS
 
-User A:
-  RMV BvSScripts          → Thread and file removed.
+- User B (Superman):
+  - RDT BvSScripts          → 1 Batman: Do you bleed?
+  - DWN BvSScripts doom.exe → BvSScripts-doom.exe downloaded.
 
-Known Limitations
-Code Structure: Heavy use of if-else chains → hard to maintain/debug
-Error Handling: Limited input validation; split() may fail on malformed input
-UDP Reliability: Basic retransmission logic; no ACK/sequence numbers or congestion control
+- User A:
+  - RMV BvSScripts          → Thread and file removed.
 
-How to Run
-Server:
-python3 server.py <port>
-Client (run multiple instances):
-python3 client.py 127.0.0.1 <port>
+## Known Limitations
+- Code Structure: Heavy use of if-else chains → hard to maintain/debug
+- Error Handling: Limited input validation; split() may fail on malformed input
+- UDP Reliability: Basic retransmission logic; no ACK/sequence numbers or congestion control
 
-References
-Python 3.13 Docs: os, threading, concurrent.futures, re
-Batman v Superman: Dawn of Justice (for demo scenario inspiration 😄)
+## How to Run
+- Server:
+- python3 server.py <port>
+- Client (run multiple instances):
+- python3 client.py 127.0.0.1 <port>
+
+## References
+- Python 3.13 Docs: os, threading, concurrent.futures, re
+- Batman v Superman: Dawn of Justice (for demo scenario inspiration 😄)
