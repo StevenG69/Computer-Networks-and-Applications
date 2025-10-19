@@ -87,8 +87,8 @@ The system uses **UDP for command exchange** and **TCP for reliable file transfe
 - UDP Reliability: Basic retransmission logic; no ACK/sequence numbers or congestion control
 
 ## How to Run
-- Server: **python3 server.py <port>**
-- Client (run multiple instances): **python3 client.py 127.0.0.1 <port>**
+- Server: `python3 server.py <port>`
+- Client (run multiple instances): `python3 client.py 127.0.0.1 <port>`
 
 ## References
 - Python 3.13 Docs: **os**, **threading**, **concurrent.futures**, **re**
